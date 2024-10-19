@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>React Component Assignment</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <!-- React, ReactDOM, and Babel -->
+    <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- JSX/React code -->
+    <script type="text/babel">
+      // Create a functional React component
+      function MyComponent() {
+        // Event handler for the button
+        const handleClick = () => {
+          alert('Hello');
+        };
+
+        return (
+          <React.Fragment>
+            {/* Paragraph with static text */}
+            <p>React is a JavaScript library</p>
+
+            {/* Div with class 'main' and inline styles */}
+            <div className="main" style={{ padding: '20px', backgroundColor: '#f0f0f0', textAlign: 'center' }}>
+              {/* Paragraph and button inside the div */}
+              <p>Click the below button to alert 'Hello'</p>
+              <button onClick={handleClick}>Alert Hello</button>
+            </div>
+          </React.Fragment>
+        );
+      }
+
+      // Render the component into the div with id 'root'
+      ReactDOM.render(<MyComponent />, document.getElementById('root'));
+    </script>
+  </body>
+</html>
+
+//Component Functionality:
+
+The component renders a simple UI consisting of a paragraph that introduces React and a div with another paragraph and a button.
+The button triggers an alert with the message "Hello" when clicked.
+The div has a class name of main and is styled with some inline styles to make it more visually appealing.
+
+//Challenges:
+
+React Fragment: Using a Fragment allowed me to group multiple elements without creating extra DOM nodes, which is a clean way to manage multiple elements in a return statement.
+Event Handling: Setting up the onClick event in React was straightforward, but I needed to remember that React's event system is synthetic and cross-browser, which abstracts away browser inconsistencies.
+Class Handling: In React, we use className instead of class for assigning CSS classes, which could be confusing for someone new to JSX. React uses className to avoid clashes with JavaScript's class keyword.
+
